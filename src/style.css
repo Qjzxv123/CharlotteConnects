@@ -87,6 +87,9 @@ body.view-profile .discovery-view { display: none; }
 .sort-button span { margin-left: 4px; text-decoration: underline; text-underline-offset: 3px; }
 .profile-card { background: var(--panel); border: 1px solid var(--line); box-shadow: 0 13px 35px rgba(67, 56, 40, .08); cursor: grab; position: relative; touch-action: pan-y; transition: transform .25s ease, box-shadow .2s; user-select: none; }
 .profile-card.dragging { box-shadow: 0 20px 45px rgba(67, 56, 40, .16); cursor: grabbing; transition: none; }
+.empty-discovery { align-items: center; display: flex; flex-direction: column; gap: 16px; justify-content: center; min-height: 420px; padding: 30px; text-align: center; }
+.empty-discovery strong { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 500; }
+.empty-discovery button { background: var(--coral); border: 0; color: white; font-size: 11px; padding: 11px 15px; }
 .profile-card[data-direction='pass']::after, .profile-card[data-direction='like']::after { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; opacity: .9; padding: 8px 12px; position: absolute; text-transform: uppercase; top: 22px; z-index: 2; }
 .profile-card[data-direction='pass']::after { color: var(--coral); content: 'Pass'; left: 22px; }
 .profile-card[data-direction='like']::after { color: var(--green); content: 'Like'; right: 22px; }
