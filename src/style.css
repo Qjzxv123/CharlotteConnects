@@ -46,10 +46,12 @@ body.view-profile .discovery-view { display: none; }
 .page-heading h2 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 68px); font-weight: 500; letter-spacing: -.045em; line-height: 1; margin: 17px 0 10px; }
 .page-heading p { color: #6f706c; font-size: 14px; margin: 0; }
 .page-count, .profile-status { color: var(--coral); font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; }
-.profile-status { color: var(--green); }
+.profile-status { background: #edf3ed; border: 1px solid #b8cbbb; border-radius: 999px; color: var(--green); cursor: pointer; font: 500 10px 'DM Mono', monospace; padding: 9px 13px; text-transform: uppercase; transition: background .2s, border-color .2s, transform .2s; }
+.profile-status:hover { background: #e2ede3; border-color: var(--green); transform: translateY(-1px); }
+.profile-status:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
 .profile-status::first-letter { color: #79a66a; }
-.profile-status { background: none; border: 0; cursor: pointer; font: inherit; padding: 0; }
-.profile-status.hidden { color: #9b7064; }
+.profile-status.hidden { background: #f5ebe7; border-color: #d6b9ae; color: #9b7064; }
+.profile-status.hidden:hover { background: #f0dfd9; border-color: #9b7064; }
 .connection-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
 .connection-card { background: var(--panel); border: 1px solid var(--line); display: grid; grid-template-columns: 110px 1fr; min-height: 155px; }
 .connection-card img { height: 100%; min-height: 153px; object-fit: cover; width: 100%; }
