@@ -135,6 +135,19 @@ body.profile-required .close-modal { display: none; }
 .auth-modal input:focus { border-color: var(--coral); }
 .auth-modal textarea { background: white; border: 1px solid var(--line); border-radius: 0; font: 13px/1.4 'DM Sans', sans-serif; margin-bottom: 0; outline: 0; padding: 13px; resize: vertical; width: 100%; }
 .auth-modal textarea:focus { border-color: var(--coral); }
+.secondary-button { background: transparent; border: 1px solid var(--green); color: var(--green); font-size: 12px; margin: 10px 0 18px; padding: 12px 14px; text-align: left; width: 100%; }
+.secondary-button span { float: right; font-size: 16px; line-height: 12px; }
+.secondary-button:disabled { cursor: wait; opacity: .55; }
+.auth-mode { display: grid; gap: 8px; grid-template-columns: 1fr 1fr; margin: 16px 0 8px; }
+.auth-mode-button { background: transparent; border: 1px solid var(--line); color: #77756e; font-size: 11px; padding: 10px; }
+.auth-mode-button.active { background: var(--green); border-color: var(--green); color: white; }
+.auth-mode-button:disabled { cursor: default; opacity: .6; }
+.verification-step { border-left: 2px solid var(--yellow); margin: 0 0 20px; padding-left: 12px; }
+.verification-step input { letter-spacing: .18em; max-width: 180px; }
+.verification-step .secondary-button { margin-bottom: 7px; }
+.verification-step small { color: #929087; display: block; font-size: 10px; }
+.profile-fields[aria-disabled='true'] { opacity: .48; }
+.profile-fields[aria-disabled='true'] input, .profile-fields[aria-disabled='true'] select, .profile-fields[aria-disabled='true'] textarea { cursor: not-allowed; }
 .primary-button { background: var(--coral); border: 0; color: white; font-size: 12px; margin-top: 11px; padding: 14px; text-align: left; width: 100%; }
 .primary-button span { float: right; font-size: 17px; line-height: 11px; }
 .primary-button:disabled { opacity: .7; }
