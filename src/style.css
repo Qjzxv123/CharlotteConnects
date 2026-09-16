@@ -77,6 +77,7 @@ body.view-profile .discovery-view { display: none; }
 .profile-edit-footer { align-items: center; border-top: 1px solid var(--line); display: flex; gap: 20px; justify-content: space-between; margin-top: 27px; padding-top: 20px; }
 .profile-edit-footer > span { color: #929087; font-family: 'DM Mono', monospace; font-size: 10px; }
 .profile-edit-footer .primary-button { margin: 0; max-width: 190px; }
+.profile-edit-footer .primary-button.saved { background: var(--green); }
 .stage-top { align-items: center; color: #87857d; display: flex; font-family: 'DM Mono', monospace; font-size: 10px; justify-content: space-between; margin-bottom: 13px; text-transform: uppercase; }
 .sort-button { background: none; border: 0; color: #87857d; font-family: inherit; font-size: 10px; padding: 0; }
 .sort-button span { margin-left: 4px; text-decoration: underline; text-underline-offset: 3px; }
