@@ -12,7 +12,7 @@ let savedIds = new Set()
 let profileCreated = Boolean(localStorage.getItem('connects-profile'))
 
 document.querySelector('#app').innerHTML = `
-  <header class="topbar"><a class="brand" href="#discover" aria-label="Connects home"><span class="brand-mark">✦</span> connects</a><nav class="nav-links" aria-label="Main navigation"><a class="active" id="nav-discover" href="#discover">Discover</a><a id="nav-connections" href="#connections">Connections <span class="nav-count">3</span></a><a id="nav-profile" href="#profile">Profile</a></nav></header>
+  <header class="topbar"><a class="brand" href="#discover" aria-label="Charlotte Connect home"><span class="brand-mark">✦</span> Charlotte Connect</a><nav class="nav-links" aria-label="Main navigation"><a class="active" id="nav-discover" href="#discover">Discover</a><a id="nav-connections" href="#connections">Connections <span class="nav-count">3</span></a><a id="nav-profile" href="#profile">Profile</a></nav></header>
   <main>
     <section class="browse-shell discovery-view" aria-label="Discover profiles">
       <aside class="filters"><div class="filter-heading"><span>How are you connecting?</span></div><label class="filter-label" for="interest">I'm looking for</label><select id="interest"><option>Relationship</option><option>Friend</option></select><div class="filter-note"><span>☼</span><p>We only show verified<br />Charlotte student emails.</p></div></aside>
