@@ -69,6 +69,7 @@ body.view-profile .discovery-view { display: none; }
 .connection-card-title { align-items: center; display: flex; justify-content: space-between; }
 .connection-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; margin: 0; }
 .connection-card-title span { align-items: center; background: var(--coral); border-radius: 50%; color: white; display: flex; font-size: 9px; height: 18px; justify-content: center; width: 18px; }
+.empty-connections { color: #929087; font-family: 'DM Mono', monospace; font-size: 10px; grid-column: 1 / -1; padding: 45px 0; text-align: center; text-transform: uppercase; }
 .connection-card p { color: #89877f; font-size: 10px; margin: 5px 0 22px; }
 .message-button { background: none; border: 0; color: var(--coral); font-family: 'DM Mono', monospace; font-size: 10px; padding: 0; text-transform: uppercase; }
 .message-button span { font-size: 15px; margin-left: 5px; }
