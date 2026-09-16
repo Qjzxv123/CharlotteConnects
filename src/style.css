@@ -48,6 +48,8 @@ body.view-profile .discovery-view { display: none; }
 .page-count, .profile-status { color: var(--coral); font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; }
 .profile-status { color: var(--green); }
 .profile-status::first-letter { color: #79a66a; }
+.profile-status { background: none; border: 0; cursor: pointer; font: inherit; padding: 0; }
+.profile-status.hidden { color: #9b7064; }
 .connection-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
 .connection-card { background: var(--panel); border: 1px solid var(--line); display: grid; grid-template-columns: 110px 1fr; min-height: 155px; }
 .connection-card img { height: 100%; min-height: 153px; object-fit: cover; width: 100%; }
