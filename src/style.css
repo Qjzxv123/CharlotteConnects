@@ -77,6 +77,8 @@ body.view-profile .discovery-view { display: none; }
 .profile-edit-grid { display: grid; gap: 22px 18px; grid-template-columns: 1fr 1fr; }
 .profile-edit-grid label { color: #66655f; display: block; font-family: 'DM Mono', monospace; font-size: 10px; margin-bottom: 8px; text-transform: uppercase; }
 .profile-edit-grid input, .profile-edit-grid select, .profile-edit-grid textarea { margin: 0; }
+.profile-edit-grid input[readonly] { background: #eef2ee; color: #6d7972; cursor: not-allowed; }
+.field-note { color: #929087; display: block; font-size: 10px; margin-top: 7px; }
 .lifestyle-fields { display: grid; gap: 22px 18px; grid-template-columns: 1fr 1fr; margin: 22px 0; }
 .lifestyle-fields label { color: #66655f; display: block; font-family: 'DM Mono', monospace; font-size: 10px; margin-bottom: 8px; text-transform: uppercase; }
 .lifestyle-fields input, .lifestyle-fields select { margin: 0; }
