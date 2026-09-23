@@ -119,13 +119,13 @@ body.view-profile .discovery-view { display: none; }
 .stage-top { align-items: center; color: #87857d; display: flex; font-family: 'DM Mono', monospace; font-size: 10px; justify-content: space-between; margin-bottom: 13px; text-transform: uppercase; }
 .sort-button { background: none; border: 0; color: #87857d; font-family: inherit; font-size: 10px; padding: 0; }
 .sort-button span { margin-left: 4px; text-decoration: underline; text-underline-offset: 3px; }
-.profile-card { background: var(--panel); border: 1px solid var(--line); box-shadow: 0 13px 35px rgba(67, 56, 40, .08); cursor: grab; position: relative; touch-action: pan-y; transition: transform .25s ease, box-shadow .2s; user-select: none; }
+.profile-card { background: var(--panel); border: 1px solid var(--line); box-shadow: 0 13px 35px rgba(67, 56, 40, .08); cursor: grab; max-height: min(720px, calc(100svh - 220px)); overflow-y: auto; position: relative; scroll-behavior: smooth; scrollbar-color: var(--green) transparent; scrollbar-width: thin; touch-action: pan-y; transition: transform .25s ease, box-shadow .2s; user-select: none; }
 .profile-card.dragging { box-shadow: 0 20px 45px rgba(67, 56, 40, .16); cursor: grabbing; transition: none; }
 .profile-card.flipped { background: transparent; border-color: transparent; box-shadow: none; }
-.profile-card-inner { min-height: 100%; position: relative; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.2, .75, .25, 1); }
-.profile-card.flipped .profile-card-inner { transform: rotateY(180deg); }
-.profile-card-face { backface-visibility: hidden; background: var(--panel); border: 1px solid var(--line); box-shadow: 0 13px 35px rgba(67, 56, 40, .08); min-height: 100%; }
-.profile-card-back { inset: 0; overflow-y: auto; padding: 28px; position: absolute; transform: rotateY(180deg); }
+.profile-card-inner { min-height: auto; position: relative; }
+.profile-card.flipped .profile-card-inner { transform: none; }
+.profile-card-face { background: var(--panel); border: 0; box-shadow: none; min-height: auto; }
+.profile-card-back { border-top: 1px solid var(--line); padding: 28px; position: static; transform: none; }
 .profile-back-heading { align-items: flex-start; display: flex; justify-content: space-between; }
 .profile-back-heading h2 { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 500; letter-spacing: -.03em; margin: 8px 0 0; }
 .flip-trigger { display: none; }
@@ -148,9 +148,7 @@ body.view-profile .discovery-view { display: none; }
 .image-badge { background: rgba(32, 72, 60, .91); bottom: 15px; color: white; font-family: 'DM Mono', monospace; font-size: 10px; left: 15px; padding: 7px 10px; position: absolute; }
 .verified-badge { align-items: center; background: var(--coral); border: 2px solid var(--panel); border-radius: 50%; color: white; display: flex; font-size: 12px; height: 25px; justify-content: center; position: absolute; right: 15px; top: 15px; width: 25px; }
 .profile-body { padding: 21px 22px 19px; }
-.profile-card-front .profile-body { padding-bottom: 57px; position: relative; }
-.profile-card-front .profile-body::after { bottom: 15px; color: var(--green); content: '\f2a2'; font-family: 'CoreUI-Icons-Free'; font-size: 16px; left: 50%; position: absolute; transform: translateX(-50%); }
-.profile-card-front .profile-body::before { bottom: 7px; color: var(--muted); content: 'Swipe down for more'; font: 9px 'DM Mono', monospace; left: 50%; position: absolute; text-transform: uppercase; transform: translateX(-50%); white-space: nowrap; }
+.profile-card-front .profile-body { padding-bottom: 19px; position: relative; }
 .profile-header { align-items: flex-start; display: flex; justify-content: space-between; }
 .profile-header h2 { font-family: 'Playfair Display', serif; font-size: 27px; font-weight: 500; letter-spacing: -.03em; margin: 0 0 4px; }
 .profile-header p { color: #8a8880; font-size: 11px; margin: 0; }
