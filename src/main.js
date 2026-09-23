@@ -1,7 +1,7 @@
 import './style.css'
 import { supabase } from './supabase.js'
 
-function profileImageMarkup(profile, alt) { return profile.image ? `<img src="${profile.image}" alt="${alt}" />` : '<div class="default-profile-avatar"><i class="cil-user" aria-hidden="true"></i></div>' }
+function profileImageMarkup(profile, alt) { return profile.image ? `<img src="${profile.image}" alt="${alt}" draggable="false" />` : '<div class="default-profile-avatar"><i class="cil-user" aria-hidden="true"></i></div>' }
 
 let profiles = []
 let matches = []
@@ -84,11 +84,13 @@ function setPhotoPreview(selector, photo) { const preview = document.querySelect
 function readPhoto(input) { return new Promise((resolve, reject) => { const file = input.files[0]; if (!file) { resolve(''); return } const reader = new FileReader(); reader.onload = () => { const image = new Image(); image.onload = () => { const maxSize = 900; const scale = Math.min(1, maxSize / Math.max(image.width, image.height)); const canvas = document.createElement('canvas'); canvas.width = Math.max(1, Math.round(image.width * scale)); canvas.height = Math.max(1, Math.round(image.height * scale)); canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height); resolve(canvas.toDataURL('image/jpeg', .82)) }; image.onerror = () => resolve(reader.result); image.src = reader.result }; reader.onerror = reject; reader.readAsDataURL(file) }) }
 const swipeCard = document.querySelector('#profile-card')
 let swipeStartX = 0
+let swipeStartY = 0
 let swipeDeltaX = 0
-swipeCard.addEventListener('pointerdown', (event) => { swipeStartX = event.clientX; swipeDeltaX = 0; swipeCard.classList.add('dragging'); swipeCard.setPointerCapture(event.pointerId) })
-swipeCard.addEventListener('pointermove', (event) => { if (!swipeCard.classList.contains('dragging')) return; swipeDeltaX = event.clientX - swipeStartX; swipeCard.style.transform = `translateX(${swipeDeltaX}px) rotate(${swipeDeltaX / 16}deg)`; swipeCard.dataset.direction = swipeDeltaX < 0 ? 'pass' : 'like' })
-swipeCard.addEventListener('pointerup', () => { if (!swipeCard.classList.contains('dragging')) return; swipeCard.classList.remove('dragging'); swipeCard.style.transform = ''; if (Math.abs(swipeDeltaX) > 90) cycleProfile(swipeDeltaX < 0 ? 'Passed for now' : 'Like sent. Fingers crossed.'); swipeDeltaX = 0; delete swipeCard.dataset.direction })
-swipeCard.addEventListener('pointercancel', () => { swipeCard.classList.remove('dragging'); swipeCard.style.transform = ''; swipeDeltaX = 0; delete swipeCard.dataset.direction })
+let swipeDeltaY = 0
+swipeCard.addEventListener('pointerdown', (event) => { swipeStartX = event.clientX; swipeStartY = event.clientY; swipeDeltaX = 0; swipeDeltaY = 0; swipeCard.classList.add('dragging'); swipeCard.setPointerCapture(event.pointerId) })
+swipeCard.addEventListener('pointermove', (event) => { if (!swipeCard.classList.contains('dragging')) return; swipeDeltaX = event.clientX - swipeStartX; swipeDeltaY = event.clientY - swipeStartY; if (Math.abs(swipeDeltaY) > Math.abs(swipeDeltaX)) { swipeCard.style.transform = `translateY(${Math.max(0, swipeDeltaY)}px) rotateX(${Math.min(8, Math.max(0, swipeDeltaY / 18))}deg)`; delete swipeCard.dataset.direction } else { swipeCard.style.transform = `translateX(${swipeDeltaX}px) rotate(${swipeDeltaX / 16}deg)`; swipeCard.dataset.direction = swipeDeltaX < 0 ? 'pass' : 'like' } })
+swipeCard.addEventListener('pointerup', () => { if (!swipeCard.classList.contains('dragging')) return; swipeCard.classList.remove('dragging'); swipeCard.style.transform = ''; if (swipeDeltaY > 80 && Math.abs(swipeDeltaY) > Math.abs(swipeDeltaX)) { swipeCard.classList.toggle('flipped'); showToast(swipeCard.classList.contains('flipped') ? 'Profile details' : 'Profile photo') } else if (Math.abs(swipeDeltaX) > 90) cycleProfile(swipeDeltaX < 0 ? 'Passed for now' : 'Like sent. Fingers crossed.'); swipeDeltaX = 0; swipeDeltaY = 0; delete swipeCard.dataset.direction })
+swipeCard.addEventListener('pointercancel', () => { swipeCard.classList.remove('dragging'); swipeCard.style.transform = ''; swipeDeltaX = 0; swipeDeltaY = 0; delete swipeCard.dataset.direction })
 swipeCard.addEventListener('keydown', (event) => { if (event.key === 'ArrowLeft') cycleProfile('Passed for now'); if (event.key === 'ArrowRight') cycleProfile('Like sent. Fingers crossed.') })
 renderProfile()
 renderConnections()
